@@ -36,7 +36,7 @@
     empty.hidden = items.length !== 0;
     list.innerHTML = items.map(place => `
       <button class="place-card" type="button" data-business-id="${Number(place.id)}" aria-label="Read about ${escapeHtml(place.name)}">
-        <span class="card-category">${escapeHtml(place.bucket)} &middot; ${escapeHtml(place.category)}</div>
+        <span class="card-category">${escapeHtml(place.bucket)} &middot; ${escapeHtml(place.category)}</span>
         <span class="card-title">${escapeHtml(place.name)}</span>
         <span class="card-summary">${escapeHtml(place.reason)}</span>
         <span class="card-bottom"><span class="source-label ${hasSource(place) ? 'sourced' : ''}">${sourceStatus(place)}</span><span class="more">View details &rarr;</span></span>
