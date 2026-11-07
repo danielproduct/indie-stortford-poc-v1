@@ -32,6 +32,14 @@
     .row{display:flex;justify-content:space-between;gap:10px;align-items:start}.name{font-weight:750;font-size:16px}.cat{font-size:12px;color:var(--muted);margin-top:2px}.pill{display:inline-block;margin-top:7px;padding:4px 8px;border-radius:999px;background:var(--mint);font-size:11px;color:var(--green)}.pill.conditional{background:#fff0dc;color:#9b5a0e}
     .detail{position:fixed;inset:0;background:#0b2420aa;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.detail.show{display:flex}.sheet{max-width:540px;width:100%;background:#fff;border-radius:22px;padding:20px;box-shadow:0 30px 80px #000d}.close{float:right;border:0;background:#f4f6f5;border-radius:50%;width:36px;height:36px}.why{background:var(--mint);border-radius:14px;padding:14px;margin:14px 0}.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.meta div{background:#f7f9f7;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.a.btn{display:inline-block;text-decoration:none;background:var(--green);color:#fff;border-radius:12px;padding:10px 12px;font-size:13px}.a.btn.alt{background:#fff;color:var(--green);border:1px solid var(--green)}
     .empty{padding:30px;text-align:center;color:var(--muted)}
+    .feedback-link{display:inline-block;background:var(--green);color:#fff;text-decoration:none;border-radius:12px;padding:11px 15px;font-weight:650;white-space:nowrap}
+    .feedback-section{margin:20px 0 36px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+    .feedback-section h2{font-family:Georgia,serif;font-size:27px;margin:0 0 8px}
+    .feedback-section p{color:var(--muted);line-height:1.5;margin:0 0 12px}
+    .feedback-frame{display:block;width:100%;height:1030px;border:0;border-radius:12px;background:#fff}
+    .feedback-fallback{display:inline-block;margin-top:12px;color:var(--green);font-weight:650}
+    .feedback-note{font-size:12px;margin-top:10px!important}
+    @media(max-width:780px){.feedback-section{padding:14px}.feedback-frame{height:1160px}.feedback-link{width:100%;text-align:center}}
     @media (max-width:780px){.app{padding:10px}header{align-items:start;flex-direction:column}h1{font-size:31px}.controls{grid-template-columns:1fr 1fr}.controls input{grid-column:1/-1}.layout{grid-template-columns:1fr}.map{height:420px}.list{max-height:none}}
   </style>
 </head>
@@ -42,7 +50,7 @@
         <h1>Indie Stortford</h1>
         <p class="strap">Find local places. Understand why they’re independent. Spend locally with confidence.</p>
       </div>
-      <div class="badge">Prototype • Bishop's Stortford v0.1</div>
+      <div><a class="feedback-link" href="#feedback">Share your feedback</a><div class="badge" style="margin-top:8px;text-align:center">Prototype • Bishop's Stortford v0.1</div></div>
     </header>
 
     <div class="controls">
@@ -77,6 +85,13 @@
         <div id="list" class="list"></div>
       </section>
     </div>
+    <section class="feedback-section" id="feedback" aria-labelledby="feedback-heading">
+      <h2 id="feedback-heading">Help shape Indie Stortford</h2>
+      <p>Explored the local businesses? Tell us what worked and what we could improve. This short survey is anonymous unless you choose to share personal information in a free-text answer.</p>
+      <iframe class="feedback-frame" title="Indie Stortford feedback survey" src="https://docs.google.com/forms/d/e/1FAIpQLSedYda8zfHdKll_BTI8QBj7o9Xx86jO32GnyeT_-n5ucp_q-w/viewform?embedded=true" loading="lazy">Loading feedback form…</iframe>
+      <a class="feedback-fallback" href="https://docs.google.com/forms/d/e/1FAIpQLSedYda8zfHdKll_BTI8QBj7o9Xx86jO32GnyeT_-n5ucp_q-w/viewform" target="_blank" rel="noopener noreferrer">Having trouble? Open the feedback form in a new tab</a>
+      <p class="feedback-note">Responses are collected through Google Forms and processed by Google. Please don't include sensitive personal details.</p>
+    </section>
   </div>
 
   <div id="detail" class="detail" onclick="if(event.target===this)closeDetail()">
