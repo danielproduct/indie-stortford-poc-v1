@@ -33,6 +33,13 @@
     .detail{position:fixed;inset:0;background:#0b2420aa;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.detail.show{display:flex}.sheet{max-width:540px;width:100%;background:#fff;border-radius:22px;padding:20px;box-shadow:0 30px 80px #000d}.close{float:right;border:0;background:#f4f6f5;border-radius:50%;width:36px;height:36px}.why{background:var(--mint);border-radius:14px;padding:14px;margin:14px 0}.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.meta div{background:#f7f9f7;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}a.btn{display:inline-block;text-decoration:none;background:var(--green);color:#fff;border-radius:12px;padding:10px 12px;font-size:13px}a.btn.alt{background:#fff;color:var(--green);border:1px solid var(--green)}
     .empty{padding:30px;text-align:center;color:var(--muted)}
     .feedback-link{display:inline-block;background:var(--green);color:#fff;text-decoration:none;border-radius:12px;padding:11px 15px;font-weight:650;white-space:nowrap}
+    .owner-section{margin:20px 0 0;padding:20px 22px;background:var(--mint);border:1px solid #c7dfd3;border-radius:20px}
+    .owner-section h2{font-family:Georgia,serif;font-size:24px;margin:0 0 8px}
+    .owner-section p{color:var(--ink);line-height:1.5;margin:0 0 12px}
+    .owner-mail{display:inline-block;padding:12px 16px;border-radius:12px;background:var(--green);color:#fff;text-decoration:none;font-weight:650}
+    .owner-mail:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+    .owner-note{font-size:12px;margin-top:10px!important;color:var(--muted)!important;overflow-wrap:anywhere}
+    @media(max-width:780px){.owner-section{padding:15px}.owner-mail{display:block;text-align:center;width:100%}}
     .feedback-section{margin:20px 0 36px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
     .feedback-section h2{font-family:Georgia,serif;font-size:27px;margin:0 0 8px}
     .feedback-section p{color:var(--muted);line-height:1.5;margin:0 0 12px}
@@ -121,6 +128,12 @@
         <div id="list" class="list"></div>
       </section>
     </div>
+    <section class="owner-section" aria-labelledby="owner-heading">
+      <h2 id="owner-heading">Run an independent business in Bishop's Stortford?</h2>
+      <p>Suggest a business for inclusion, help correct a listing, or share your business story.</p>
+      <a class="owner-mail" href="mailto:danielthenews@gmail.com?subject=Indie%20Stortford%20%7C%20Business%20Listing%20Enquiry&body=Business%20name%3A%0ABusiness%20address%3A%0ABusiness%20website%20or%20social%20media%3A%0AWhat%20would%20you%20like%20to%20share%20or%20correct%3A%0A">Email us about a business</a>
+      <p class="owner-note">Opens your email app with a draft for you to complete and send. If that doesn't work, email <a href="mailto:danielthenews@gmail.com">danielthenews@gmail.com</a>. Enquiries are reviewed manually; submitting details does not automatically add or verify a business.</p>
+    </section>
     <section class="feedback-section" id="feedback" aria-labelledby="feedback-heading">
       <h2 id="feedback-heading">Help shape Indie Stortford</h2>
       <p>Explored the local businesses? Tell us what worked and what we could improve. Please avoid including personal details in your answers.</p>
