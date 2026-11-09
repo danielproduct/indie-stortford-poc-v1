@@ -40,6 +40,16 @@
     .feedback-fallback{display:inline-block;margin-top:12px;color:var(--green);font-weight:650}
     .feedback-note{font-size:12px;margin-top:10px!important}
     @media(max-width:780px){.feedback-section{padding:14px}.feedback-frame{height:1160px}.feedback-link{width:100%;text-align:center}}
+    .mobile-map-toggle,.mobile-feedback-link,.mobile-header-feedback{display:none}
+    @media(max-width:780px){
+      .mobile-map-toggle{display:inline-block;padding:8px 12px;font-size:13px;font-weight:650;border-color:var(--green);color:var(--green)}
+      .map{height:0;transition:height .2s ease}
+      .map.expanded{height:420px}
+      .feedback-frame,.desktop-header-feedback{display:none}
+      .mobile-feedback-link,.mobile-header-feedback{display:inline-block}
+      .mobile-feedback-link{background:var(--green);color:white;text-decoration:none;border-radius:12px;padding:12px 16px;font-weight:650}
+      .mobile-header-feedback{width:100%;text-align:center}
+    }
     @media (max-width:780px){.app{padding:10px}header{align-items:start;flex-direction:column}h1{font-size:31px}.controls{grid-template-columns:1fr 1fr}.controls input{grid-column:1/-1}.layout{grid-template-columns:1fr}.map{height:420px}.list{max-height:none}}
   </style>
 </head>
@@ -50,7 +60,7 @@
         <h1>Indie Stortford</h1>
         <p class="strap">Find local places. Understand why they’re independent. Spend locally with confidence.</p>
       </div>
-      <div><a class="feedback-link" href="#feedback">Share your feedback</a><div class="badge" style="margin-top:8px;text-align:center">Prototype • Bishop's Stortford v0.1</div></div>
+      <div><a class="feedback-link desktop-header-feedback" href="#feedback">Share your feedback</a><a class="feedback-link mobile-header-feedback" href="https://docs.google.com/forms/d/e/1FAIpQLSedYda8zfHdKll_BTI8QBj7o9Xx86jO32GnyeT_-n5ucp_q-w/viewform" target="_blank" rel="noopener noreferrer">Share your feedback</a><div class="badge" style="margin-top:8px;text-align:center">Prototype • Bishop's Stortford v0.1</div></div>
     </header>
 
     <div class="controls">
@@ -73,7 +83,7 @@
 
     <div class="layout">
       <section class="panel">
-        <div class="maphead"><strong>Explore the town</strong><span id="mapCount" class="small"></span></div>
+        <div class="maphead"><strong>Explore the town</strong><div style="display:flex;gap:8px;align-items:center"><span id="mapCount" class="small"></span><button class="mobile-map-toggle" id="mapToggle" aria-controls="map" aria-expanded="false" type="button">Show map</button></div></div>
         <div class="map" id="map">
           <div class="townlabel">Bishop's<br>Stortford</div>
           <div class="mapnote">Prototype map only — pin positions are schematic until addresses are geocoded and verified.</div>
@@ -88,6 +98,7 @@
     <section class="feedback-section" id="feedback" aria-labelledby="feedback-heading">
       <h2 id="feedback-heading">Help shape Indie Stortford</h2>
       <p>Explored the local businesses? Tell us what worked and what we could improve. Please avoid including personal details in your answers.</p>
+      <a class="mobile-feedback-link" href="https://docs.google.com/forms/d/e/1FAIpQLSedYda8zfHdKll_BTI8QBj7o9Xx86jO32GnyeT_-n5ucp_q-w/viewform" target="_blank" rel="noopener noreferrer">Open feedback form in new tab</a>
       <iframe class="feedback-frame" title="Indie Stortford feedback survey" src="https://docs.google.com/forms/d/e/1FAIpQLSedYda8zfHdKll_BTI8QBj7o9Xx86jO32GnyeT_-n5ucp_q-w/viewform?embedded=true" loading="lazy">Loading feedback form…</iframe>
       <a class="feedback-fallback" href="https://docs.google.com/forms/d/e/1FAIpQLSedYda8zfHdKll_BTI8QBj7o9Xx86jO32GnyeT_-n5ucp_q-w/viewform" target="_blank" rel="noopener noreferrer">Having trouble? Open the feedback form in a new tab</a>
       <p class="feedback-note">Responses are collected through Google Forms and processed by Google. Please don't include sensitive personal details.</p>
@@ -228,6 +239,13 @@
     function closeDetail() {
       document.getElementById('detail').classList.remove('show');
     }
+
+    const mapToggle = document.getElementById('mapToggle');
+    mapToggle.addEventListener('click', () => {
+      const expanded = document.getElementById('map').classList.toggle('expanded');
+      mapToggle.setAttribute('aria-expanded', String(expanded));
+      mapToggle.textContent = expanded ? 'Hide map' : 'Show map';
+    });
 
     [search, category, indie].forEach(x => x.addEventListener('input', render));
     render();
