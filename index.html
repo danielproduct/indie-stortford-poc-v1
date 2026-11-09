@@ -43,9 +43,9 @@
     .mobile-map-toggle,.mobile-feedback-link,.mobile-header-feedback{display:none}
     @media(max-width:780px){
       .mobile-map-toggle{display:inline-block;padding:8px 12px;font-size:13px;font-weight:650;border-color:var(--green);color:var(--green)}
-      .map:not(.expanded){height:0;transition:height .2s ease}
-      .map.expanded{height:420px}
-      .feedback-frame,.desktop-header-feedback{display:none}
+      .map:not(.expanded){height:0;visibility:hidden;transition:height .2s ease}
+      .map.expanded{height:420px;visibility:visible}
+      .feedback-frame,.desktop-header-feedback,.feedback-fallback{display:none}
       .mobile-feedback-link,.mobile-header-feedback{display:inline-block}
       .mobile-feedback-link{background:var(--green);color:white;text-decoration:none;border-radius:12px;padding:12px 16px;font-weight:650}
       .mobile-header-feedback{width:100%;text-align:center}
